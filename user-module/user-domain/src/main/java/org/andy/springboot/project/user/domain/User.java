@@ -1,13 +1,13 @@
 package org.andy.springboot.project.user.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.andy.springboot.project.user.domain.model.BaseDomain;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
+@Builder
 public class User extends BaseDomain {
     private String id;
 
