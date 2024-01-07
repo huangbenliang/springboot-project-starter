@@ -4,8 +4,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.andy.springboot.project.common.response.ResponseResult;
 import org.andy.springboot.project.user.controller.convert.UserConverter;
-import org.andy.springboot.project.user.controller.request.UserParam;
-import org.andy.springboot.project.user.domain.User;
+import org.andy.springboot.project.user.controller.request.UserAddParam;
+import org.andy.springboot.project.user.controller.request.UserUpdateParam;
+import org.andy.springboot.project.user.domain.model.User;
 import org.andy.springboot.project.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-@Api(value = "User Interfaces", tags = "User Interfaces")
+@Api(value = "User Module", tags = "User Module")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -24,13 +25,20 @@ public class UserController {
     private UserConverter userConverter;
 
     /**
-     * @param userParam userParam
+     * @param userAddParam userParam
      * @return userParam
      */
     @PostMapping("")
-    @ApiOperation("Add userParam")
-    public ResponseResult<User> addUser(@RequestBody @Valid UserParam userParam) {
-        userService.addUser(userConverter.toUser(userParam));
+    @ApiOperation("add userParam")
+    public ResponseResult<Long> addUser(@RequestBody @Valid UserAddParam userAddParam) {
+        userService.addUser(userConverter.toUser(userAddParam));
+        return ResponseResult.success();
+    }
+
+    @PutMapping("")
+    @ApiOperation("update userParam")
+    public ResponseResult<User> updateUser(@RequestBody @Valid UserUpdateParam userUpdateParam) {
+        userService.updateUser(userConverter.toUser(userUpdateParam));
         return ResponseResult.success();
     }
 

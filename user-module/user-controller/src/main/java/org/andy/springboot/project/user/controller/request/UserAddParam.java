@@ -7,24 +7,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import java.io.Serializable;
 
 @Data
 @Builder
 @ApiModel("userParam")
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserParam implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @ApiModelProperty(required = true, example = "10001")
-    private Long id;
-
-    @NotEmpty
+public class UserAddParam {
     @ApiModelProperty(required = true, example = "huangbenliang")
     private String userName;
 
@@ -34,15 +25,18 @@ public class UserParam implements Serializable {
 
     @NotEmpty
     @Email
+    @ApiModelProperty(example = "123@qq.com")
     private String email;
 
     @NotEmpty
+    @ApiModelProperty(example = "15323853881")
     private String phoneNumber;
 
     @NotEmpty
+    @ApiModelProperty(example = "description")
     private String description;
 
-    @Valid
     private AddressParam address;
 }
+
 

@@ -1,6 +1,6 @@
 package org.andy.springboot.project.user.convert;
 
-import org.andy.springboot.project.user.domain.User;
+import org.andy.springboot.project.user.domain.model.User;
 import org.andy.springboot.project.user.entity.UserDo;
 import org.mapstruct.InheritConfiguration;
 import org.mapstruct.Mapper;
