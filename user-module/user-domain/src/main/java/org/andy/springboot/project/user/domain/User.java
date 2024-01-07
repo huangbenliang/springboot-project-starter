@@ -9,8 +9,6 @@ import org.andy.springboot.project.user.domain.model.BaseDomain;
 @ToString(callSuper = true)
 @Builder
 public class User extends BaseDomain {
-    private String id;
-
     private String userName;
 
     private String password;

@@ -21,9 +21,8 @@ public class UserParam implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @NotEmpty
     @ApiModelProperty(required = true, example = "10001")
-    private String id;
+    private Long id;
 
     @NotEmpty
     @ApiModelProperty(required = true, example = "huangbenliang")

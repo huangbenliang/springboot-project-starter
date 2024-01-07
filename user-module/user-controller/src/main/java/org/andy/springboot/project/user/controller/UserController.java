@@ -24,7 +24,7 @@ public class UserController {
     private UserConverter userConverter;
 
     /**
-     * @param userParam userParam param
+     * @param userParam userParam
      * @return userParam
      */
     @PostMapping("")

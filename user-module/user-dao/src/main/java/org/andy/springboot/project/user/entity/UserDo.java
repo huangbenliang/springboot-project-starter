@@ -15,8 +15,6 @@ import org.andy.springboot.project.common.mybatis.model.BaseDo;
 @ToString(callSuper = true)
 @TableName("tb_user")
 public class UserDo extends BaseDo {
-    private String id;
-
     private String userName;
 
     private String password;
