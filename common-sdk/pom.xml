@@ -17,6 +17,7 @@
         <module>common-validation</module>
         <module>common-controller-advice</module>
         <module>common-knife4j</module>
+        <module>common-mybatis</module>
     </modules>
 
     <properties>
@@ -49,6 +50,11 @@
             <dependency>
                 <groupId>org.andy</groupId>
                 <artifactId>common-knife4j</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.andy</groupId>
+                <artifactId>common-mybatis</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

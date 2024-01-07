@@ -7,4 +7,5 @@ spring:
   profiles:
     active:
       - common-knife4j
+      - common-mybatis
       - user-dao

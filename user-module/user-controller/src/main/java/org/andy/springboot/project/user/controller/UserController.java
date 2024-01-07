@@ -17,7 +17,6 @@ import java.util.List;
 @RequestMapping("/user")
 @Api(value = "User Interfaces", tags = "User Interfaces")
 public class UserController {
-
     @Autowired
     private UserService userService;
 

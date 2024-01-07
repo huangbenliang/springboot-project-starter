@@ -4,12 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.andy.springboot.project.user.domain.model.BaseDomain;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Address {
+public class Address extends BaseDomain {
 
     private String province;
 
