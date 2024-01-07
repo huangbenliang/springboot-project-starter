@@ -6,11 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.Range;
 
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Data
@@ -22,28 +21,27 @@ public class UserParam implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @NotEmpty(message = "could not be empty")
-    @ApiModelProperty(name = "userId", required = true, example = "10001")
-    private String userId;
+    @NotEmpty
+    @ApiModelProperty(required = true, example = "10001")
+    private String id;
 
-    @NotEmpty(message = "could not be empty")
-    @Email(message = "invalid email")
+    @NotEmpty
+    @ApiModelProperty(required = true, example = "huangbenliang")
+    private String userName;
+
+    @NotEmpty
+    @ApiModelProperty(required = true, example = "123456")
+    private String password;
+
+    @NotEmpty
+    @Email
     private String email;
 
-    @NotEmpty(message = "could not be empty")
-    @Pattern(regexp = "^(\\d{6})(\\d{4})(\\d{2})(\\d{2})(\\d{3})([0-9]|X)$", message = "invalid ID")
-    private String cardNo;
+    @NotEmpty
+    private String phoneNumber;
 
-    @NotEmpty(message = "could not be empty")
-    @Length(min = 1, max = 10, message = "nick name should be 1-10")
-    private String nickName;
-
-    @NotNull(message = "could not be null")
-    @Range(min = 0, max = 1, message = "sex should be 0-1")
-    private Integer sex;
-
-    @Max(value = 100, message = "Please input valid age")
-    private Integer age;
+    @NotEmpty
+    private String description;
 
     @Valid
     private AddressParam address;

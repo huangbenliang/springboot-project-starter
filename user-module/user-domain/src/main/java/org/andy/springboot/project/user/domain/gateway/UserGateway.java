@@ -1,15 +1,11 @@
-package org.andy.springboot.project.user.service;
-
+package org.andy.springboot.project.user.domain.gateway;
 
 import org.andy.springboot.project.user.domain.User;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserGateway {
     void addUser(User user);
 
-    /**
-     * @return user list
-     */
     List<User> listUser();
 }

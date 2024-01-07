@@ -2,11 +2,11 @@ package org.andy.springboot.project.common.advice;
 
 import lombok.extern.slf4j.Slf4j;
 import org.andy.springboot.project.common.response.ResponseResult;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,10 +31,9 @@ public class GlobalExceptionHandler {
     public ResponseResult<ExceptionData> handleParameterVerificationException(@NonNull Exception e) {
         ExceptionData.ExceptionDataBuilder exceptionDataBuilder = ExceptionData.builder();
         log.warn("handleParameterVerificationException: {}", e.getMessage());
-        log.error("error");
         if (e instanceof BindException) {
             BindingResult bindingResult = ((MethodArgumentNotValidException) e).getBindingResult();
-            bindingResult.getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
+            bindingResult.getAllErrors().stream().map(error -> ((FieldError) error).getField() + ": " + error.getDefaultMessage())
                     .forEach(exceptionDataBuilder::error);
         } else if (e instanceof ConstraintViolationException) {
             if (e.getMessage() != null) {

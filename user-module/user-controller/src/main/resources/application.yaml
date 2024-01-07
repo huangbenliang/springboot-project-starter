@@ -7,3 +7,4 @@ spring:
   profiles:
     active:
       - common-knife4j
+      - user-dao

@@ -4,7 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.andy.springboot.project.common.response.ResponseResult;
 import org.andy.springboot.project.user.controller.request.UserParam;
-import org.andy.springboot.project.user.entity.User;
+import org.andy.springboot.project.user.domain.User;
 import org.andy.springboot.project.user.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +25,9 @@ public class UserController {
      * @param user user param
      * @return user
      */
-    @PostMapping("/add")
+    @PostMapping("")
     @ApiOperation("Add user")
-    public ResponseResult<User> add(@RequestBody @Valid UserParam user) {
+    public ResponseResult<User> addUser(@RequestBody @Valid UserParam user) {
         User target = new User();
         BeanUtils.copyProperties(user, target);
         userService.addUser(target);
@@ -39,7 +39,7 @@ public class UserController {
      * @return user list
      */
     @GetMapping("/list")
-    public ResponseResult<List<User>> list() {
-        return ResponseResult.success(userService.list());
+    public ResponseResult<List<User>> listUser() {
+        return ResponseResult.success(userService.listUser());
     }
 }
