@@ -1,4 +1,4 @@
-基于 Springboot + Spring Cloud Alibab 的 Java Web 项目开发脚手架。
+基于 Springboot + Spring Cloud Alibaba 的 Java Web 项目开发脚手架。
 
 特性：
 1. 快速构建

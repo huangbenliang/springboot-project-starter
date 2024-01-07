@@ -3,3 +3,7 @@ logging:
     root: info
   file:
     path: C:/data/logs/springboot-logback-demo
+spring:
+  profiles:
+    active:
+      - common-knife4j

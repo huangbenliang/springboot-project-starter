@@ -1,18 +1,21 @@
 package org.andy.springboot.project.user.controller;
 
-import org.andy.springboot.project.response.ResponseResult;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.andy.springboot.project.common.response.ResponseResult;
+import org.andy.springboot.project.user.controller.request.UserParam;
 import org.andy.springboot.project.user.entity.User;
 import org.andy.springboot.project.user.service.UserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@Api(value = "User Interfaces", tags = "User Interfaces")
 public class UserController {
 
     @Autowired
@@ -23,8 +26,11 @@ public class UserController {
      * @return user
      */
     @PostMapping("/add")
-    public ResponseResult<User> add(User user) {
-        userService.addUser(user);
+    @ApiOperation("Add user")
+    public ResponseResult<User> add(@RequestBody @Valid UserParam user) {
+        User target = new User();
+        BeanUtils.copyProperties(user, target);
+        userService.addUser(target);
         return ResponseResult.success();
     }
 

@@ -16,6 +16,8 @@
         <module>user-dao</module>
         <module>user-service</module>
         <module>user-controller</module>
+        <module>user-domain</module>
+        <module>user-api</module>
     </modules>
 
     <properties>
@@ -28,12 +30,9 @@
         <dependencies>
             <dependency>
                 <groupId>org.andy</groupId>
-                <artifactId>common-logback</artifactId>
-                <version>${common-sdk.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.andy</groupId>
-                <artifactId>common-response</artifactId>
+                <artifactId>common-sdk</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
                 <version>${common-sdk.version}</version>
             </dependency>
             <dependency>
@@ -48,5 +47,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 </project>

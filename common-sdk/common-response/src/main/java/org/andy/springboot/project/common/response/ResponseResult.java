@@ -1,4 +1,4 @@
-package org.andy.springboot.project.response;
+package org.andy.springboot.project.common.response;
 
 import lombok.Builder;
 import lombok.Data;

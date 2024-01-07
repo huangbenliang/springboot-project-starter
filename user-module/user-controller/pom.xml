@@ -19,11 +19,19 @@
     <dependencies>
         <dependency>
             <groupId>org.andy</groupId>
-            <artifactId>common-logback</artifactId>
+            <artifactId>common-response</artifactId>
         </dependency>
         <dependency>
             <groupId>org.andy</groupId>
-            <artifactId>common-response</artifactId>
+            <artifactId>common-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.andy</groupId>
+            <artifactId>common-controller-advice</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.andy</groupId>
+            <artifactId>common-knife4j</artifactId>
         </dependency>
         <dependency>
             <groupId>org.andy</groupId>

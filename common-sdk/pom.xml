@@ -14,6 +14,9 @@
     <modules>
         <module>common-logback</module>
         <module>common-response</module>
+        <module>common-validation</module>
+        <module>common-controller-advice</module>
+        <module>common-knife4j</module>
     </modules>
 
     <properties>
@@ -21,5 +24,35 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.andy</groupId>
+                <artifactId>common-validation</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.andy</groupId>
+                <artifactId>common-response</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.andy</groupId>
+                <artifactId>common-logback</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.andy</groupId>
+                <artifactId>common-controller-advice</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.andy</groupId>
+                <artifactId>common-knife4j</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
 
 </project>
